@@ -30,11 +30,11 @@ var isMobile = {
 var fullHeight = function() {
     debugger;
     if ( !isMobile.any() ) {
-            $('.fullheight').css('height', $(window).height());
+            $('.fullheight').css('height', $(window).height()-$("nav").height());
             $('.header.fullheight').css('padding-top', $("nav").height());
             
             $(window).resize(function(){
-                $('.fullheight').css('height', $(window).height());
+                $('.fullheight').css('height', $(window).height()-$("nav").height());
                 $('.header.fullheight').css('padding-top', $("nav").height());
                     
             });
