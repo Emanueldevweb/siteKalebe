@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="componentes/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="stylesheets/style.css">
   <link rel="stylesheet" href="componentes/font-awesome/css/font-awesome.min.css">
-  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="shortcut icon" href="favicon_two.ico">
   <!-- Google fonts -->
   <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Playfair+Display:400italic' rel='stylesheet' type='text/css' />-->
   <link href='stylesheets/font.css' rel='stylesheet' type='text/css' />
@@ -37,10 +37,11 @@
         <div class="collapse navbar-collapse" id="menuTela">
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Principal</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sobre</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-check"></span> Serviços</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-folder-open"></span> Portfolio</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Contato</a></li>
+                <li><a href="#" id="linkSobre" ><span class="glyphicon glyphicon-user"></span> Sobre</a></li>
+                <li><a href="#" id="linkServicos"><span class="glyphicon glyphicon-check"></span> Serviços</a></li>
+                <li><a href="#" id="linkTecnologia"><span class="glyphicon glyphicon-check"></span> Tecnologias</a></li>
+                <li><a href="#" id="linkPortfolio"><span class="glyphicon glyphicon-folder-open"></span> Portfolio</a></li>
+                <li><a href="#" id="linkContato"><span class="glyphicon glyphicon-envelope"></span> Contato</a></li>
             </ul>
         </div>
 
@@ -425,7 +426,7 @@
                                 <div class="panel ">
                                     <div class="panel-body">
                                         <figure>
-                                            <img src="images/console/c_admin_ico.png">
+                                            <img src="images/console/c_localizador_ico.png">
                                         </figure>
                                     </div>
                                     <div class="panel-footer">
@@ -440,12 +441,12 @@
                                 <div class="panel ">
                                     <div class="panel-body">
                                         <figure>
-                                            <img src="images/console/c_admin_ico.png">
+                                            <img src="images/siteHorus/home_ico.png">
                                         </figure>
                                     </div>
                                     <div class="panel-footer">
                                         <h4>
-                                            Site Horus Softwares
+                                            <a href="www.horussoftwares.com.br" style="text-decoration: none">Site Horus Softwares</a>
                                         </h4>
                                     </div>
                                 </div> 
@@ -584,6 +585,63 @@
         
         $(document).ready(function(){
             
+            $("ul.nav li a").on("click", null, function(){
+                //debugger;
+                $("ul.nav li").removeClass("active");
+                $(this).parent().addClass("active");
+            });
+            
+            $("#linkSobre").on("click", null, function(){
+                //debugger;
+                if($(".navbar-collapse").hasClass("in")){
+                    $(".navbar-collapse").removeClass("in");
+                }
+                
+                $("html, body").animate({scrollTop:($("#sobre").offset().top - $("nav").height() ) },"100");
+                return false;
+            });
+            
+            
+            $("#linkServicos").on("click", null, function(){
+                
+                if($(".navbar-collapse").hasClass("in")){
+                    $(".navbar-collapse").removeClass("in");
+                }
+                
+                $("html, body").animate({scrollTop:($("#servicos").offset().top - $("nav").height() ) },"100");
+                return false;
+            });
+            
+            $("#linkTecnologia").on("click", null, function(){
+                
+                if($(".navbar-collapse").hasClass("in")){
+                    $(".navbar-collapse").removeClass("in");
+                }
+                
+                $("html, body").animate({scrollTop:($("#tecnologia").offset().top - $("nav").height() ) },"100");
+                return false;
+            });
+            
+            $("#linkPortfolio").on("click", null, function(){
+                
+                if($(".navbar-collapse").hasClass("in")){
+                    $(".navbar-collapse").removeClass("in");
+                }
+                
+                $("html, body").animate({scrollTop:($("#portfolio").offset().top - $("nav").height() ) },"100");
+                return false;
+            });
+            
+            
+            $("#linkContato").on("click", null, function(){
+                
+                if($(".navbar-collapse").hasClass("in")){
+                    $(".navbar-collapse").removeClass("in");
+                }
+                
+                $("html, body").animate({scrollTop:($("#contato").offset().top - $("nav").height() ) },"100");
+                return false;
+            });
             
             emailValidado = false;
                 
