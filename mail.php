@@ -12,10 +12,11 @@ $texto =  filter_input(INPUT_POST, "msg");
 //This should be done in your php.ini, but this is how to do it if you don't have access to that
 date_default_timezone_set('Etc/UTC');
 
-require '../siteOficial/componentes/PHPMailer-5.2.23/class.phpmailer.php';
+require_once('./componentes/PHPMailer-5.2.23/class.phpmailer.php');
+
 
 //Create a new PHPMailer instance
-$mail = new PHPMailer(TRUE);
+$mail = new PHPMailer(true);
 
 //Tell PHPMailer to use SMTP
 $mail->isSMTP();
@@ -51,12 +52,13 @@ $mail->Username = "site.kalebecalixto@gmail.com";
 $mail->Password = "Vitrola55";
 
 $mail->IsSendmail();
+$mail->IsHTML(true);
 
 //Set who the message is to be sent from
 $mail->setFrom('site.kalebecalixto@gmail.com', 'Contato Via Site - '.$nome);
 
 //Set who the message is to be sent to
-$mail->addAddress('kalebe.calixto@gmail.com.br', 'Site Kalebe Calixto');
+$mail->addAddress('kalebe.calixto@gmail.com', 'Site kalebe calixto');
 
 //Set the subject line
 $mail->Subject = 'Contato Via Site Kalebe Calixto';
@@ -71,15 +73,16 @@ $msgFormat .= $texto;
 
 $mail->MsgHTML($msgFormat);
 
-$mail->IsHTML(TRUE);
-
 //Replace the plain text body with one created manually
-$mail->AltBody = 'Mensagem enviada via Site Kalebe Calixto';
+$mail->AltBody = 'Mensagem enviada via Site kalebe calixto';
 
 //Attach an image file
 
-try{
-    $mail->send();
-} catch (phpmailerException $ex) {
-    echo "Message sent!"+$ex->ErrorInfo;
+if(!$mail->send()){
+    echo "erro ".$mail->ErrorInfo;
+}
+else{
+    
+    echo "messagem enviada / ".$mail->ErrorInfo;
+
 }
