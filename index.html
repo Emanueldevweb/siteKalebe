@@ -662,8 +662,10 @@
                             data: dados,
                             success: function (data, textStatus, jqXHR) {
                                 debugger;
-                                //var dados = JSON.parse(data.);
-                                bootbox.alert("Email Enviado com Sucesso! Responderemos o mais breve possível");
+                                if(data == "messagem enviada")
+                                    bootbox.alert("Email Enviado com Sucesso! Responderemos o mais breve possível");
+                                else
+                                    bootbox.alert("Ocorreu um erro interno, estamos trabalhando para soluciona-lo.<br>Favor enviar um email utilizando o endereço informado acima. <br>Obrigado");
                         
                             }
                         });
