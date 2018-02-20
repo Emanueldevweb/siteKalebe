@@ -51,13 +51,13 @@ var fullHeight = function() {
     else{ 
         
         $('header.fullheight').css('height', $(window).height());
-        $('header.header.fullheight').css('padding-top', $("nav").height());
+        $('header.fullheight').css('padding-top', $("nav").height());
             
             
             
         $(window).resize(function(){
             $('header.fullheight').css('height', $(window).height());
-            $('header.header.fullheight').css('padding-top', $("nav").height());
+            $('header.fullheight').css('padding-top', $("nav").height());
 
         });
         

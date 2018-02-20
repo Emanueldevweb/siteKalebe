@@ -83,6 +83,6 @@ if(!$mail->send()){
 }
 else{
     
-    echo "messagem enviada / ".$mail->ErrorInfo;
+    echo "messagem enviada";
 
 }
